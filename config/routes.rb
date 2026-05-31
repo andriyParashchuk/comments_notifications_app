@@ -19,6 +19,6 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :comments
+  resources :comments, only: %i[new create]
   resources :notifications, only: %i[index update]
 end

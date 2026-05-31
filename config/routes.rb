@@ -11,4 +11,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  root "home#index"
+
+  get "/login",  to: "sessions#new"
+  post "/login",  to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
+  resources :comments
+  resources :notifications, only: %i[index update]
 end

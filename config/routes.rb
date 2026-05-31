@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root "home#index"
+  devise_for :users, path: "", path_names: {
+    sign_in: "login",
+    sign_out: "logout"
+  }
 
-  get "/login",  to: "sessions#new"
-  post "/login",  to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  root "home#index"
 
   resources :comments
   resources :notifications, only: %i[index update]

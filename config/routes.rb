@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :comments, only: %i[new create]
-  resources :notifications, only: %i[index update]
+  resources :comments, only: %i[new create edit update destroy]
+  resources :notifications, only: [] do
+    patch :mark_as_read, on: :member
+  end
 end

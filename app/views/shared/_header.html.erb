@@ -1,5 +1,7 @@
 <header class="fixed top-0 left-0 right-0 h-16 bg-white/80 backdrop-blur-md border-b border-gray-100 z-30 font-sans antialiased">
   <div class="w-full h-full px-6 flex items-center justify-end space-x-2">
+    <%= render "comments/search" %>
+
     <div class="relative" data-controller="notifications">
       <button data-action="click->notifications#toggle" class="relative p-2 text-gray-400 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors focus:outline-none cursor-pointer">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">

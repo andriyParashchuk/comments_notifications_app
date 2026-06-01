@@ -1,0 +1,9 @@
+<%= form_with model: comment, html: { class: "space-y-4 font-sans" } do |f| %>
+    <%= f.text_area :body, rows: 4, required: true, class: "w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gray-900 transition-colors resize-none" %>
+
+  <div class="flex items-center justify-end space-x-2.5 pt-2">
+    <%= link_to "Cancel", "#", data: { action: "click->modal#close" }, class: "px-4 py-2 text-[14px] font-medium text-gray-500 hover:text-gray-700 bg-gray-100 hover:bg-gray-200/70 rounded-lg transition-colors focus:outline-none cursor-pointer text-center" %>
+
+    <%= f.submit "Save", class: "px-4 py-2 text-[14px] font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-lg transition-colors shadow-sm focus:outline-none cursor-pointer text-center" %>
+  </div>
+<% end %>

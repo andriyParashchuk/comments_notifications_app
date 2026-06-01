@@ -1,0 +1,15 @@
+<%= render "shared/header", notifications: @notifications %>
+
+<div class="w-full max-w-[500px] mx-auto flex flex-col space-y-4 p-4 pt-16 font-sans">
+  <div class="pt-4">
+    <%= render "shared/alerts", flash: flash %>
+  </div>
+
+  <div id="comments">
+    <% @comments.each do |comment| %>
+      <%= render "comments/comment", comment: comment %>
+    <% end %>
+  </div>
+
+  <%= render "comments/floating_button" %>
+</div>

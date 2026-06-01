@@ -1,0 +1,15 @@
+<div class="max-w-[500px] mx-auto mt-20 px-4 font-sans antialiased">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="mb-2">
+      <%= f.label :email, class: "block text-[14px] font-bold text-gray-900 mb-1" %>
+      <%= f.email_field :email, class: "w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gray-900 transition-colors" %>
+    </div>
+    <div class="mb-4">
+      <%= f.label :password, class: "block text-[14px] font-bold text-gray-900 mb-1" %>
+      <%= f.password_field :password, class: "w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-[14px] text-gray-800 placeholder-gray-400 focus:outline-none focus:border-gray-900 transition-colors" %>
+    </div>
+    <div>
+      <%= f.submit "Login", class: "bg-gray-800 hover:bg-gray-700 text-white text-[14px] font-medium px-5 py-2 rounded-lg cursor-pointer transition-colors focus:outline-none" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,33 @@
+<header class="fixed top-0 left-0 right-0 h-16 bg-white/80 backdrop-blur-md border-b border-gray-100 z-30 font-sans antialiased">
+  <div class="w-full h-full px-6 flex items-center justify-end space-x-2">
+    <%= render "comments/search" %>
+
+    <div class="relative" data-controller="notifications">
+      <button data-action="click->notifications#toggle" class="relative p-2 text-gray-400 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors focus:outline-none cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+        </svg>
+
+        <% if notifications.present? %>
+          <span class="absolute top-1.5 right-1.5 flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+          </span>
+        <% end %>
+      </button>
+
+      <div data-notifications-target="menu" class="min-h-16 hidden absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100 flex-col overflow-hidden animate-in fade-in slide-in-from-top-1 duration-150">
+        <% notifications.each do |notification| %>
+          <%= render "notifications/notification", notification: notification %>
+        <% end %>
+        <% unless notifications.present? %>
+          <span class="block text-center text-sm text-gray-400 font-normal py-6">
+            No notifications
+          </span>
+        <% end %>
+      </div>
+    </div>
+
+    <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "flex items-center space-x-2 text-[16px] font-medium text-gray-400 hover:text-gray-900 hover:bg-gray-50 transition-colors focus:outline-none py-2 px-3 rounded-lg" %>
+  </div>
+</header>
